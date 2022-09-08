@@ -1,0 +1,42 @@
+<h2>Giphy Search</h2>
+
+<form [formGroup]="searchForm" (ngSubmit)="performSearch()">
+    <table>
+        <tr>
+            <td>API: </td>
+            <td><input size="30" type="text" formControlName="api" [ngClass]="{'red-border': hasError('api')}"></td>
+        </tr>
+        <tr>
+            <td>Search: </td>
+            <td><input size="30" type="text" formControlName="search" [ngClass]="{'red-border': hasError('search')}"></td>
+        </tr>
+        <tr>
+            <td>Results: </td>
+            <td>
+                <select formControlName="results">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Rating: </td>
+            <td>
+                <select formControlName="rating">
+                    <option value="g">g</option>
+                    <option value="pg">pg</option>
+                    <option value="pg-13">pg-13</option>
+                    <option value="r">r</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="submit" [disabled]="searchForm.invalid">Search</button></td>
+        </tr>
+    </table>
+</form>
